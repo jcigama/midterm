@@ -18,4 +18,12 @@ class Controller
         $view = new Template();
         echo $view->render('views/survey.html');
     }
+
+    function summary()
+    {
+        $_SESSION['data'] = $_POST;
+
+        $view = new Template();
+        echo $view->render('views/summary.html');
+    }
 }
