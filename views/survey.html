@@ -1,19 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
-    <meta charset="UTF-8">
-    <title>Midterm Survey</title>
-</head>
+<include href="views/header.html"></include>
 <body>
     <div class="container">
-
-
         <h1>Midterm Survey</h1>
-        <p><a href="survey">Take my Midterm Survey</a></p>
 
+        <form method="post" action="summary">
 
+            <div class="form-group">
+                <label>
+                    Name
+                    <input type="text" name="name" id="name">
+                </label>
+            </div>
 
+            <p>Check all that apply: <br></p>
+
+            <div class="form-group">
+
+                <repeat group="{{ @options }}" value="{{ @option }}">
+                    <label><input type="checkbox"
+                                  name="options[]"
+                                  value="{{ @option }}"> {{ ucfirst(@option) }}</label><br>
+                </repeat>
+            </div>
+
+            <button>Submit</button>
+        </form>
     </div>
 </body>
 </html>
